@@ -4,22 +4,29 @@ import java.util.Objects;
 public class Employee {
 
 
-    private static int counter = 1;
+    private static int id;
     private Persons persons;
     private int salary;
     private int group;
-    private int id;
+    //private int id;
 
     public Employee(Persons persons, int salary, int group, int counter) {
         this.persons = persons;
         this.salary = salary;
         this.group = group;
-        this.id = counter;
+        id++;
+        if (id > 10 ) {
+            throw new IllegalArgumentException("Перебор");
+        }
+        // this.id = id;
+
+
+
 
     }
 
     public static int getCounter() {
-        return counter;
+        return id;
     }
 
     public Persons getPersons() {
@@ -36,10 +43,11 @@ public class Employee {
 
     public int getId() {
         return id;
+
     }
 
     public static void setCounter(int counter) {
-        Employee.counter = counter;
+        //Employee.counter = counter;
     }
 
     public void setPersons(Persons persons) {
@@ -69,5 +77,14 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(persons, salary, group, id);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "persons=" + persons +
+                ", salary=" + salary +
+                ", group=" + group +
+                '}';
     }
 }
