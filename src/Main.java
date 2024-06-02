@@ -164,7 +164,7 @@ public class Main {
     private static void printEmployeeSalaryLess(int salary) {
         for (Employee employee : employees) {
             if (employee.getSalary() < salary) {
-                System.out.println(String.format("%d % %s %d %n",employee.getId() ,employee.getFirstName(), employee.getSecondName(), employee.getLastName(), employee.getSalary()));
+                System.out.printf("%d % %s %d %n%n",employee.getId() ,employee.getFirstName(), employee.getSecondName(), employee.getLastName(), employee.getSalary());
 
             }
         }
